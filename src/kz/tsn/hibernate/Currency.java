@@ -8,7 +8,7 @@ public class Currency {
     private String country;
     private Integer cost;
     private String note;
-    private String countryCount;
+    private Integer countryCount;
 
     public Currency() {
     }
@@ -71,11 +71,11 @@ public class Currency {
         this.note = note;
     }
 
-    public String getCountryCount() {
+    public Integer getCountryCount() {
         return countryCount;
     }
 
-    public void setCountryCount(String countryCount) {
+    public void setCountryCount(Integer countryCount) {
         this.countryCount = countryCount;
     }
 

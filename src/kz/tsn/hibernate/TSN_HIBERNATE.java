@@ -28,31 +28,31 @@ public class TSN_HIBERNATE {
         predicates[2] = cb.like(rootUser.get("currencyCode").get("costInTenge"), "%%");
         criteriaUser.select(rootUser).where(predicates);
 
-        CurrencyCode userRole1 = new CurrencyCode();
-        userRole1.setCostInTenge("R114");
-        userRole1.setCostInRub("125");
-        session.save(userRole1);
+        CurrencyCode currencyCode1 = new CurrencyCode();
+        currencyCode1.setCostInTenge(440);
+        currencyCode1.setCostInRub(65);
+        session.save(currencyCode1);
 
-        CurrencyCode userRole2 = new CurrencyCode();
-        userRole2.setCostInTenge("admin");
-        userRole2.setCostInRub("77,12144");
-        session.save(userRole2);
+        CurrencyCode currencyCode2 = new CurrencyCode();
+        currencyCode2.setCostInTenge(430);
+        currencyCode2.setCostInRub(60);
+        session.save(currencyCode2);
 
         org.hibernate.Transaction tr = session.beginTransaction();
-        session.delete(userRole1);
-//        session.delete(userRole2);
+        session.delete(currencyCode1);
+//        session.delete(currencyCode2);
         tr.commit();
 
         Currency user = new Currency();
-        user.setCountryCount("1,2,3,4");
-        user.setCost("Test12");
-        user.setName("Test1");
-        user.setCountry("1234");
-        user.setCurrencyCode(new CurrencyCode("hibernate2", "7,7,7"));
+        user.setCountryCount(5);
+        user.setCost(1);
+        user.setName("EUR");
+        user.setCountry("Italy");
+        user.setCurrencyCode(new CurrencyCode(500, 71));
         session.save(user);
 
         user = (Currency) session.get(Currency.class, user.getId());
-        user.setCountryCount("777");
+        user.setCountryCount(30);
         session.save(user);
 
         List<Currency> resultsUser = session.createQuery(criteriaUser).getResultList();
@@ -60,8 +60,8 @@ public class TSN_HIBERNATE {
             System.out.println(item);
         });
 
-        List<CurrencyCode> resultsUserRole = session.createQuery(criteriaUserRole).getResultList();
-        resultsUserRole.forEach((item) -> {
+        List<CurrencyCode> resultsCountryCode = session.createQuery(criteriaCurrencyCode).getResultList();
+        resultsCountryCode.forEach((item) -> {
             System.out.println(item);
         });
 
