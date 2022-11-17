@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="kz.tsn.hibernate">
+    <class name="CurrencyCode" table="currencycode">
+        <id name="id" column="id" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+        <property name="costInTenge" column="costInTenge"/>
+        <property name="costInRub" column="costInRub"/>
+    </class>
+</hibernate-mapping>
